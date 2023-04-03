@@ -1,0 +1,19 @@
+.button {
+  box-sizing:content-box;
+  margin: 16px;
+  padding: 16px;
+  border: none;
+  font-family: inherit;
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+
+  border-radius: 20%;
+  background-color: rgb(16, 13, 31);
+  box-shadow: 0 0 2px white;
+  color: white;
+
+  &:hover {
+    box-shadow: 0 0 7px white;
+  }
+}

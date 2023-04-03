@@ -1,0 +1,56 @@
+@use "../../../utils/styles.variables" as styles;
+
+.container {
+  margin: 8px;
+  width: 500px;
+  border: 1px solid white;
+  border-radius: 10px;
+
+  padding: 8px;
+  
+  @media only screen and (max-width: styles.$smallScreenSize) {
+    width: 300px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .normal-image {
+    width: 400px;
+    margin: 16px 8px 0px;
+
+    cursor: pointer;
+
+    @media only screen and (max-width: styles.$smallScreenSize) {
+      width: 200px;
+    }
+  }
+}
+
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Set a semi-transparent background */
+
+  z-index: 5000;
+
+  .zoomed-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(
+      -50%,
+      -50%
+    ); /* Center the image vertically and horizontally */
+    max-width: 80%; /* Set a maximum width for the image */
+    max-height: 80%; /* Set a maximum height for the image */
+
+    border: 2px solid #fff; /* Add a border around the image */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add a box-shadow to create a 3D effect */
+  }
+}

@@ -1,0 +1,51 @@
+@use '../../utils/styles.variables' as styles;
+
+.intro-container {
+  padding: 0 48px;
+  @media only screen and (max-width: styles.$mediumScreenSize) {
+    padding: 0 24px;
+  }
+  @media only screen and (max-width: styles.$smallScreenSize) {
+    padding: 0 12px;
+  }
+
+  ul {
+    padding: 0;
+    margin: 16px 0 24px;
+
+    li {
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 16px;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  & > p:first-of-type {
+    margin: 32px 0 20px;
+  }
+
+  p {
+    line-height: 24px;
+    letter-spacing: 1px;
+  }
+
+  .profile-picture {
+    float: left;
+
+    width: 450px;
+    margin-right: 24px;
+    padding-bottom: 12px;
+
+    @media only screen and (max-width: styles.$largeScreenSize) {
+      width: 300px;
+    }
+    @media only screen and (max-width: styles.$mediumScreenSize) {
+      float: none;
+    }
+  }
+}

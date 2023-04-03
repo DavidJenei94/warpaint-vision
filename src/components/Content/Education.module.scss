@@ -1,0 +1,29 @@
+@use '../../utils/styles.variables' as styles;
+
+.education-container {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+
+  @media only screen and (max-width: styles.$mediumScreenSize) {
+    display: block;
+  }
+
+  & > div {
+    width: 50%;
+    padding: 8px;
+
+    @media only screen and (max-width: styles.$mediumScreenSize) {
+      width: 100%;
+    }
+  }
+
+  h3 {
+    margin-top: 32px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}

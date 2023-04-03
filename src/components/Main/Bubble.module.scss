@@ -1,0 +1,136 @@
+$yellowPulse: #818041;
+$purplePulse: #7a4181;
+$greenPulse: #41814c;
+$bluePulse: #263485;
+$redPulse: #814141;
+$cyanPulse: #417d81;
+
+$sphere3DgradientEffect: linear-gradient(135deg, #8c9094, #1d2c3d, #0f151c);
+$sphere3DshadeEffect: inset 5px 5px 5px rgba(50, 50, 50, 0.333),
+  inset -15px -15px 20px rgba(0, 0, 0, 0.75), 5px 5px 10px rgba(0, 0, 0, 0.4);
+
+@mixin pulsatingAnimation($color) {
+  $keyframe-name: unique-id();
+
+  @keyframes #{$keyframe-name} {
+    0% {
+      box-shadow: $sphere3DshadeEffect, 0px 0px 25px $color;
+    }
+    12% {
+      box-shadow: $sphere3DshadeEffect, 0px 0px 35px $color;
+    }
+    25% {
+      box-shadow: $sphere3DshadeEffect, 0px 0px 15px $color;
+    }
+    37% {
+      box-shadow: $sphere3DshadeEffect, 0px 0px 35px $color;
+    }
+    50% {
+      box-shadow: $sphere3DshadeEffect, 0px 0px 15px $color;
+    }
+    62% {
+      box-shadow: $sphere3DshadeEffect, 0px 0px 35px $color;
+    }
+    75% {
+      box-shadow: $sphere3DshadeEffect, 0px 0px 15px $color;
+    }
+    87% {
+      box-shadow: $sphere3DshadeEffect, 0px 0px 25px $color;
+    }
+    100% {
+      box-shadow: $sphere3DshadeEffect, 0px 0px 0px $color;
+    }
+  }
+
+  animation: #{$keyframe-name} 3s;
+}
+
+@keyframes appear {
+  from {opacity: 0}
+  from {opacity: 1}
+}
+
+.bubble {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  
+  top: 0;
+  left: 0;
+
+  padding: 12px;
+  border-radius: 100%;
+
+  background-color: #172332;
+
+  background: $sphere3DgradientEffect;
+  box-shadow: $sphere3DshadeEffect;
+
+  // opacity transition in functional component
+  opacity: 0;
+
+  &.appear{
+    opacity: 1;
+  }
+
+  // // A float element equals to content:
+  // // All float elements became block elements, which means their height is equal to children's height
+  // float: left;
+
+  // Make the height equal to the width with the ::before pseudo-element
+  &::before {
+    content: '';
+    margin-top: 100%;
+  }
+
+  & > * {
+    color: #ffffff;
+    letter-spacing: 2px;
+
+    @media only screen and (max-width: 500px) {
+      font-size: 10px;
+    }
+  }
+
+  &.collision-yellow {
+    box-shadow: 0px 0px 0px $yellowPulse;
+
+    @include pulsatingAnimation($yellowPulse);
+  }
+
+  &.collision-purple {
+    box-shadow: 0px 0px 0px $purplePulse;
+
+    @include pulsatingAnimation($purplePulse);
+  }
+
+  &.collision-green {
+    box-shadow: 0px 0px 0px $greenPulse;
+
+    @include pulsatingAnimation($greenPulse);
+  }
+
+  &.collision-blue {
+    box-shadow: 0px 0px 0px $bluePulse;
+
+    @include pulsatingAnimation($bluePulse);
+  }
+
+  &.collision-red {
+    box-shadow: 0px 0px 0px $redPulse;
+
+    @include pulsatingAnimation($redPulse);
+  }
+
+  &.collision-cyan {
+    box-shadow: 0px 0px 0px $cyanPulse;
+
+    @include pulsatingAnimation($cyanPulse);
+  }
+
+  &.hover {
+    box-shadow: $sphere3DshadeEffect, 0px 0px 25px #ffffff;
+    cursor: pointer;
+    z-index: 500;
+  }
+}

@@ -1,0 +1,14 @@
+@use '../../../utils/styles.variables' as styles;
+
+.projects-container {
+  .projects-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}

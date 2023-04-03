@@ -1,0 +1,36 @@
+@use '../../utils/styles.variables' as styles;
+
+.modal {
+  box-sizing: border-box;
+
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+
+  z-index: 1000;
+  overflow: auto;
+
+  background-color: rgba(16, 13, 31, 0.945);
+  padding: 8px;
+
+  @media only screen and (max-width: styles.$mediumScreenSize) {
+    padding: 8px 16px;
+  }
+
+  .close {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+    border-radius: 10%;
+    height: 90%;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #19193f;
+  }
+}
