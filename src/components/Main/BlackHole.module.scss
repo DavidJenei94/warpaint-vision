@@ -1,0 +1,35 @@
+.blackhole {
+  position: absolute;
+  display: flex;
+  align-items: center;
+
+  width: 50px;
+  height: 50px;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+
+  padding: 12px;
+
+  cursor: pointer;
+
+  border-radius: 100%;
+  background-color: #000000;
+  box-shadow: 2px 2px 8px rgb(255, 255, 255), -2px -2px 8px rgb(255, 255, 255);
+  transform-origin: center;
+  animation: spin 5s linear infinite;
+  
+  &:hover {
+    box-shadow: 2px 2px 15px rgb(255, 255, 255), -2px -2px 15px rgb(255, 255, 255);
+    // box-shadow: 2px 2px 8px rgb(0, 0, 0), -2px -2px 8px rgb(0, 0, 0);
+    // box-shadow: 2px 2px 8px rgb(129, 129, 129), -2px -2px 8px rgb(0, 0, 0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

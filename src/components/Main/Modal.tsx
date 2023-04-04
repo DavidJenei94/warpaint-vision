@@ -5,8 +5,10 @@ import Introduction from '../Content/Introduction';
 import Projects from '../Content/Projects/Projects';
 import Skills from '../Content/Skills';
 import Button from '../UI/Button';
+import Menu from './Menu';
 
 import styles from './Modal.module.scss';
+import logo from '../../assets/menu/logo.png';
 
 interface ModalProps {
   activeBubble: string;
@@ -16,6 +18,10 @@ interface ModalProps {
 const Modal = ({ activeBubble, setActiveBubble }: ModalProps) => {
   const handleClose = () => {
     setActiveBubble('');
+  };
+
+  const handleMenu = () => {
+    setActiveBubble('menu');
   };
 
   let activeContent: any = null;
@@ -38,6 +44,9 @@ const Modal = ({ activeBubble, setActiveBubble }: ModalProps) => {
     case 'intro':
       activeContent = <Introduction />;
       break;
+    case 'menu':
+      activeContent = <Menu setActiveBubble={setActiveBubble} />;
+      break;
     default:
       // An empty modal is opened if the content is unimplemented
       // Starting with "-" means it is unimplemented
@@ -46,9 +55,13 @@ const Modal = ({ activeBubble, setActiveBubble }: ModalProps) => {
 
   return (
     <div className={styles.modal}>
-      <div className={styles.close}>
-        <Button onClick={handleClose}>X</Button>
+      <div className={styles.menubar}>
+        {activeBubble !== 'menu' && <Button onClick={handleMenu}>Menu</Button>}
+        <Button className={styles.close} onClick={handleClose}>
+          X
+        </Button>
       </div>
+      <img className={styles.logo} src={logo} alt="warpaint vision logo" />
       {activeContent && activeContent}
     </div>
   );

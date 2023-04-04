@@ -3,9 +3,11 @@ import { useCollisionDetection } from '../../hooks/useCollisionDetection';
 import { useWindowDimensions } from '../../hooks/useDimensions';
 import { bubble, defaultBubble } from '../../models/bubble.model';
 import { randomInRange } from '../../utils/math';
+
 import Bubble from './Bubble';
 import Modal from './Modal';
 import Background from './Background';
+import BlackHole from './BlackHole';
 
 import styles from './Main.module.scss';
 
@@ -14,7 +16,6 @@ const Main = () => {
 
   const { width: windowWidth, height: windowHeight } = useWindowDimensions();
 
-  
   const [initialized, setInitialized] = useState<boolean>(false);
 
   useEffect(() => {
@@ -183,6 +184,8 @@ const Main = () => {
       >
         <p>Projects</p>
       </Bubble>
+
+      {windowWidth && windowHeight && <BlackHole  setActiveBubble={setActiveBubble} />}
 
       {/* Starting with "-" means it is unimplemented */}
       {activeBubble && activeBubble[0] !== "-" && (

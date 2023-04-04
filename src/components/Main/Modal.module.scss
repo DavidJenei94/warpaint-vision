@@ -1,4 +1,5 @@
 @use '../../utils/styles.variables' as styles;
+@use '../UI/Button.module.scss' as buttonstyles;
 
 .modal {
   box-sizing: border-box;
@@ -19,9 +20,27 @@
     padding: 8px 16px;
   }
 
-  .close {
+  .menubar {
     display: flex;
-    justify-content: flex-end;
+
+    .close {
+      @include buttonstyles.basebutton;
+
+      margin-left: auto;
+    }
+  }
+
+  .logo {
+    opacity: 0.15;
+
+    width: 50%;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    z-index: -1;
   }
 
   &::-webkit-scrollbar {
