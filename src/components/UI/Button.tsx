@@ -1,12 +1,17 @@
+import { ComponentProps } from 'react';
+
 import styles from './Button.module.scss';
 
-interface ButtonProps {
+interface ButtonProps extends ComponentProps<'button'> {
   children: React.ReactNode;
-  onClick: () => void;
 }
 
-const Button = ({ children, onClick }: ButtonProps) => {
-  return <button className={styles.button} onClick={onClick}>{children}</button>;
+const Button = ({ children, onClick, ...otherProps }: ButtonProps) => {
+  return (
+    <button className={styles.button} onClick={onClick} {...otherProps}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;
