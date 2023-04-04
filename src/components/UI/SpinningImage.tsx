@@ -1,3 +1,7 @@
+import { useState } from 'react';
+
+import LoadingIcon from './LoadingIcon';
+
 import styles from './SpinningImage.module.scss';
 
 interface SpinningImageProps {
@@ -6,10 +10,23 @@ interface SpinningImageProps {
 }
 
 const SpinningImage = ({ logoImage, textImage }: SpinningImageProps) => {
+  const [loaded, setLoaded] = useState<boolean>(false);
+
+  const onLoadHandler = () => {
+    setLoaded(true);
+  };
+
   return (
     <div className={styles['image-container']}>
-      <img className={styles['front-image']} src={logoImage} />
-      <img className={styles['back-image']} src={textImage} />
+      {!loaded && <LoadingIcon />}
+      <div style={{ display: loaded ? 'contents' : 'none' }}>
+        <img
+          className={styles['front-image']}
+          src={logoImage}
+          onLoad={onLoadHandler}
+        />
+        <img className={styles['back-image']} src={textImage} />
+      </div>
     </div>
   );
 };
