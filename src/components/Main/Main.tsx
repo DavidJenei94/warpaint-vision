@@ -32,39 +32,39 @@ const Main = () => {
     ...defaultBubble,
     roundDirection: 'counterClockwise',
     pulseColor: 'purple',
-    transformDuration: 13,
+    transformDuration: 19,
     name: 'intro',
   });
   const [hobbiesBubble, setHobbiesBubble] = useState<bubble>({
     ...defaultBubble,
     pulseColor: 'yellow',
-    transformDuration: 15,
+    transformDuration: 21,
     name: 'hobbies',
   });
   const [skillsBubble, setSkillsBubble] = useState<bubble>({
     ...defaultBubble,
     pulseColor: 'green',
-    transformDuration: 17,
+    transformDuration: 23,
     name: 'skills',
   });
   const [eduBubble, setEduBubble] = useState<bubble>({
     ...defaultBubble,
     roundDirection: 'counterClockwise',
     pulseColor: 'blue',
-    transformDuration: 19,
+    transformDuration: 25,
     name: 'edu',
   });
   const [expBubble, setExpBubble] = useState<bubble>({
     ...defaultBubble,
     pulseColor: 'red',
-    transformDuration: 21,
+    transformDuration: 27,
     name: 'exp',
   });
   const [projectsBubble, setProjectsBubble] = useState<bubble>({
     ...defaultBubble,
     roundDirection: 'counterClockwise',
     pulseColor: 'cyan',
-    transformDuration: 23,
+    transformDuration: 29,
     name: 'projects',
   });
 
