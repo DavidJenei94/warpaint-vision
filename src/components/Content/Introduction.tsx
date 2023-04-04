@@ -5,7 +5,7 @@ import LoadingIcon from '../UI/LoadingIcon';
 
 const Introduction = () => {
   const [loaded, setLoaded] = useState(false);
-  
+
   return (
     <div className={styles['intro-container']}>
       <h1>Introduction</h1>
@@ -34,15 +34,19 @@ const Introduction = () => {
           </a>
         </li>
       </ul>
-      {!loaded && <LoadingIcon />}
-      {profilePicture && (
+      {!loaded && (
+        <div className={styles['profile-picture']}>
+          <LoadingIcon />
+        </div>
+      )}
+      <div style={{ display: loaded ? 'block' : 'none' }}>
         <img
           className={styles['profile-picture']}
           src={profilePicture}
           alt="Me with a happy face"
           onLoad={() => setLoaded(true)}
         />
-      )}
+      </div>
       <p>
         I'm a hardworking and motivated person who is always ready to explore
         and learn new ways to overcome any challenge. I'm a good team player and
