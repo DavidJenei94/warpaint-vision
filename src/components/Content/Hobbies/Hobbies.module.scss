@@ -1,7 +1,11 @@
 .hobbies-container {
-  li {
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 16px;
+  ul {
+    padding-inline-start: 0;
+    
+    li {
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 16px;
+    }
   }
 }
