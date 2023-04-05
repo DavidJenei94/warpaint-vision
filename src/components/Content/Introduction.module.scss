@@ -1,11 +1,16 @@
 @use '../../utils/styles.variables' as styles;
 
 .intro-container {
+  width: 75%;
+  margin: 0 auto;
   padding: 0 48px;
+
   @media only screen and (max-width: styles.$mediumScreenSize) {
+    width: 85%;
     padding: 0 24px;
   }
   @media only screen and (max-width: styles.$smallScreenSize) {
+    width: 100%;
     padding: 0 12px;
   }
 
