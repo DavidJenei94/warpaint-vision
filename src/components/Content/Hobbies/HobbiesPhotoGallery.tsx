@@ -10,8 +10,9 @@ import image3 from '../../../assets/hobbies/8.jpg';
 import image4 from '../../../assets/hobbies/4.jpg';
 import image5 from '../../../assets/hobbies/7.jpg';
 import image6 from '../../../assets/hobbies/6.jpg';
-import image7 from '../../../assets/hobbies/2.png';
+import image7 from '../../../assets/hobbies/root.jpg';
 import image8 from '../../../assets/hobbies/2.jpg';
+import image9 from '../../../assets/hobbies/blood_donation_lifetime.png';
 
 const images = [
   { id: 1, src: image1, alt: 'Running' },
@@ -22,6 +23,7 @@ const images = [
   { id: 6, src: image6, alt: 'Wild Camping 2' },
   { id: 7, src: image7, alt: 'Board game' },
   { id: 8, src: image8, alt: 'OCR / Crossfit' },
+  { id: 9, src: image9, alt: 'Blood donation timeline' },
 ];
 
 const HobbiesPhotoGallery = () => {
