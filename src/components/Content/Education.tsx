@@ -46,7 +46,7 @@ const Education = () => {
           </a>{' '}
           - Sep 2020
         </p>
-        <h3>Driver license - Category B</h3>
+        <h3>Driver's license - Category B</h3>
         <p>Jun 2013</p>
       </div>
     </div>
