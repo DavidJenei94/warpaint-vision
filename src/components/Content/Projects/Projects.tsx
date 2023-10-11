@@ -1,7 +1,8 @@
-import SingleProjects from './SingleProjects';
+import SingleProject from './SingleProject';
 
 import styles from './Projects.module.scss';
 import warpaintvisionImg from '../../../assets/projects/warpaintvision.png';
+import optikoImg from '../../../assets/projects/optiko.png';
 import warpaintadventureImg from '../../../assets/projects/warpaintadventure.png';
 import garminImg from '../../../assets/projects/garmin.png';
 import warpaintsoundImg from '../../../assets/projects/warpaintsound.png';
@@ -24,7 +25,7 @@ const Projects = () => {
       </p>
 
       <div className={styles['projects-list']}>
-        <SingleProjects
+        <SingleProject
           project="Warpaint Vision"
           imgSrc={warpaintvisionImg}
           link="https://warpaintvision.com"
@@ -34,8 +35,8 @@ const Projects = () => {
             spectacular edition of a traditional CV.
           </p>
           <p>Tech stack: React with TS, SCSS, AWS</p>
-        </SingleProjects>
-        <SingleProjects
+        </SingleProject>
+        <SingleProject
           project="Warpaint Sound"
           imgSrc={warpaintsoundImg}
           link="https://warpaintsound.com"
@@ -50,8 +51,19 @@ const Projects = () => {
             Tech stack: React with TS, Node.js, SCSS, Postgres, Sequelize,
             Docker, Redux, Context, Leaflet, AWS
           </p>
-        </SingleProjects>
-        <SingleProjects
+        </SingleProject>
+        <SingleProject
+          project="Optiko solutions"
+          imgSrc={optikoImg}
+          link="https://optikosolutions.hu"
+        >
+          <p>
+            This website was created for an entrepreneur in the field of wooden
+            and plastic doors and windows.
+          </p>
+          <p>Tech stack: React with TS, SCSS, Netlify</p>
+        </SingleProject>
+        <SingleProject
           project="Warpaint Adventure"
           imgSrc={warpaintadventureImg}
           link="https://github.com/DavidJenei94/warpaint-adventure"
@@ -65,8 +77,8 @@ const Projects = () => {
             Tech stack: React with TS, Node.js, SCSS, Postgres, Sequelize,
             Docker, Redux, Leaflet, ORS API
           </p>
-        </SingleProjects>
-        <SingleProjects
+        </SingleProject>
+        <SingleProject
           project="Race results recording application"
           imgSrc={raceTrackerImg}
           link=""
@@ -76,9 +88,9 @@ const Projects = () => {
             results in my family)
           </p>
           <p>Tech stack: React, Node.js, MySQL, 3rd party APIs</p>
-        </SingleProjects>
+        </SingleProject>
 
-        <SingleProjects
+        <SingleProject
           project="Garmin Connect IQ apps"
           imgSrc={garminImg}
           link="https://apps.garmin.com/en-US/developer/2771e077-a0d7-4cd4-8e3e-b6057c853dc9/apps"
@@ -89,7 +101,7 @@ const Projects = () => {
             field and 1 language learning app.
           </p>
           <p>Tech stack: Monkey C</p>
-        </SingleProjects>
+        </SingleProject>
       </div>
     </div>
   );

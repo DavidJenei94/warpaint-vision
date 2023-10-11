@@ -22,6 +22,8 @@ const Education = () => {
       </div>
       <div className={styles.certifications}>
         <h1>Certifications</h1>
+        <h3>Swedish Masseur</h3>
+        <p>Sep 2023</p>
         <h3>React - The Complete Guide</h3>
         <p>
           <a

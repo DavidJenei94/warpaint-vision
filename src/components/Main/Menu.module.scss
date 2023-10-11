@@ -5,5 +5,9 @@
 
   button {
     margin: 8px;
+
+    &:hover {
+      scale: 1.05;
+    }
   }
 }

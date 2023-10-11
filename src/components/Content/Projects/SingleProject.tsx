@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import LoadingIcon from '../../UI/LoadingIcon';
 
-import styles from './SingleProjects.module.scss';
+import styles from './SingleProject.module.scss';
 
 interface SingleProjectsProps {
   imgSrc: string;
@@ -10,7 +10,7 @@ interface SingleProjectsProps {
   children: React.ReactNode;
 }
 
-const SingleProjects = ({
+const SingleProject = ({
   imgSrc,
   project,
   link,
@@ -57,4 +57,4 @@ const SingleProjects = ({
   );
 };
 
-export default SingleProjects;
+export default SingleProject;

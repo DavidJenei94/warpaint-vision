@@ -4,9 +4,16 @@ const Experience = () => {
   return (
     <div className={styles['exp-container']}>
       <h1>Experience</h1>
+      <h3>Web Developer</h3>
+      <p>Aventail Kft., Szeged</p>
+      <p>Aug 2023 - present</p>
+      <ul>
+        <li>Maintaining current web applications</li>
+        <li>Implementing new features</li>
+      </ul>
       <h3>APS VBA Support Analyst</h3>
       <p>Givaudan Business Solutions Kft., Budapest</p>
-      <p>Feb 2021 - present</p>
+      <p>Feb 2021 - Jul 2023</p>
       <ul>
         <li>Maintaining and creating VBA macros and VBS scripts</li>
         <li>Implementing new VBA module system for existing scripts</li>
