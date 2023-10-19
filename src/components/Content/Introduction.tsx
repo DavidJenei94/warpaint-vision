@@ -1,7 +1,9 @@
-import styles from './Introduction.module.scss';
-import profilePicture from '../../assets/intro/profile-picture.jpg';
 import { useState } from 'react';
+
 import LoadingIcon from '../UI/LoadingIcon';
+
+import styles from './Introduction.module.scss';
+import profilePicture from '../../assets/intro/profile-picture.png';
 
 const Introduction = () => {
   const [loaded, setLoaded] = useState(false);
