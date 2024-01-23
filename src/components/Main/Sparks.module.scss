@@ -1,0 +1,10 @@
+.cursor-trail {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  width: 3px;
+  height: 3px;
+  transform: translate(-50%, -50%);
+  z-index: 600;
+}

@@ -39,7 +39,7 @@ const Projects = () => {
         <SingleProject
           project="Warpaint Sound"
           imgSrc={warpaintsoundImg}
-          link="https://warpaintsound.com"
+          link="https://github.com/DavidJenei94/warpaint-sound"
         >
           <p>
             This application's purpose is to provide some information about
@@ -66,7 +66,7 @@ const Projects = () => {
         <SingleProject
           project="Warpaint Adventure"
           imgSrc={warpaintadventureImg}
-          link="https://github.com/DavidJenei94/warpaint-adventure"
+          link=""
         >
           <p>
             It is an under construction hiking application. Main features: user

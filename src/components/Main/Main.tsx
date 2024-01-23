@@ -8,6 +8,7 @@ import Bubble from './Bubble';
 import Modal from './Modal';
 import Background from './Background';
 import BlackHole from './BlackHole';
+import Sparks from './Sparks';
 
 import styles from './Main.module.scss';
 
@@ -129,6 +130,7 @@ const Main = () => {
   return (
     <div className={styles.container} ref={mainContainerRef}>
       <Background />
+      <Sparks />
 
       <Bubble
         bubble={introBubble}

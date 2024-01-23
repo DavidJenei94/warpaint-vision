@@ -10,6 +10,8 @@ const Experience = () => {
       <ul>
         <li>Maintaining current web applications</li>
         <li>Implementing new features</li>
+        <li>Creating E2E tests</li>
+        <li>Reviewing code</li>
       </ul>
       <h3>APS VBA Support Analyst</h3>
       <p>Givaudan Business Solutions Kft., Budapest</p>
