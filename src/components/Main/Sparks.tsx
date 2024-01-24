@@ -2,11 +2,10 @@ import { useEffect } from 'react';
 
 import styles from './Sparks.module.scss';
 
-/** Random number (currently between -5 and 5) */
-const randomNumber = () => {
-  return Math.floor(Math.random() * 11) - 5;
+/** Random number */
+const randomNumber = (min: number, max: number): number => {
+  return Math.random() * (max - min) + min;
 };
-
 const randomColor = () => {
   return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
     Math.random() * 256
@@ -15,10 +14,10 @@ const randomColor = () => {
 
 const Sparks = () => {
   useEffect(() => {
-    const trails: HTMLDivElement[] = Array.from({ length: 50 }, () =>
+    const trails: HTMLDivElement[] = Array.from({ length: 100 }, () =>
       document.createElement('div')
     );
-    const timeouts: any[] = Array.from({ length: 50 }, () => null);
+    const timeouts: any[] = Array.from({ length: 100 }, () => null);
 
     trails.forEach((trail) => {
       trail.className = styles['cursor-trail'];
@@ -31,14 +30,14 @@ const Sparks = () => {
         clearTimeout(timeouts[i]);
       }
 
-      trails[i].style.left = `${event.clientX + randomNumber()}px`;
-      trails[i].style.top = `${event.clientY + randomNumber()}px`;
+      trails[i].style.left = `${event.clientX + randomNumber(-5, 5)}px`;
+      trails[i].style.top = `${event.clientY + randomNumber(-5, 5)}px`;
       trails[i].style.opacity = '1';
-
+      trails[i].style.backgroundColor = randomColor();
+      
       const currentI = i; // capture the current value of i
       timeouts[i] = setTimeout(() => {
         trails[currentI].style.opacity = '0'; // use the captured value
-        trails[currentI].style.backgroundColor = randomColor();
       }, 500);
 
       i = (i + 1) % trails.length;
