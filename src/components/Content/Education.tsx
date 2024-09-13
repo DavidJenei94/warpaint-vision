@@ -6,6 +6,9 @@ const Education = () => {
       <div className={styles.education}>
         <h1>Education</h1>
         <h3>University of Szeged</h3>
+        <p>Geoinformatics, MSc</p>
+        <p>Sep 2024 - (in progress)</p>
+        <h3>University of Szeged</h3>
         <p>Computer Science, BSc</p>
         <p>
           Thesis: Recognition of wearing masks based on speech using deep
