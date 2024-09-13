@@ -7,7 +7,7 @@ const Education = () => {
         <h1>Education</h1>
         <h3>University of Szeged</h3>
         <p>Geoinformatics, MSc</p>
-        <p>Sep 2024 - (in progress)</p>
+        <p>Sep 2024 - present</p>
         <h3>University of Szeged</h3>
         <p>Computer Science, BSc</p>
         <p>
