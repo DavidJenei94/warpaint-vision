@@ -6,11 +6,6 @@ import styles from './Sparks.module.scss';
 const randomNumber = (min: number, max: number): number => {
   return Math.random() * (max - min) + min;
 };
-const randomColor = () => {
-  return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
-    Math.random() * 256
-  )}, ${Math.floor(Math.random() * 256)})`;
-};
 
 const Sparks = () => {
   useEffect(() => {
@@ -32,9 +27,9 @@ const Sparks = () => {
 
       trails[i].style.left = `${event.clientX + randomNumber(-5, 5)}px`;
       trails[i].style.top = `${event.clientY + randomNumber(-5, 5)}px`;
-      trails[i].style.opacity = '1';
-      trails[i].style.backgroundColor = randomColor();
-      
+      trails[i].style.opacity = '0.5';
+      trails[i].style.backgroundColor = 'rgb(255,255,255)';
+
       const currentI = i; // capture the current value of i
       timeouts[i] = setTimeout(() => {
         trails[currentI].style.opacity = '0'; // use the captured value

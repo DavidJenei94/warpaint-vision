@@ -66,7 +66,7 @@ const Projects = () => {
         <SingleProject
           project="Warpaint Adventure"
           imgSrc={warpaintadventureImg}
-          link=""
+          link="http://warpaintadventure.com"
         >
           <p>
             It is an under construction hiking application. Main features: user

@@ -3,6 +3,7 @@ import { useCollisionDetection } from '../../hooks/useCollisionDetection';
 import { useWindowDimensions } from '../../hooks/useDimensions';
 import { bubble, defaultBubble } from '../../models/bubble.model';
 import { randomInRange } from '../../utils/math';
+import { useSearchParams } from 'react-router-dom';
 
 import Bubble from './Bubble';
 import Modal from './Modal';
@@ -13,18 +14,14 @@ import Sparks from './Sparks';
 import styles from './Main.module.scss';
 
 const Main = () => {
+  let [searchParams, setSearchParams] = useSearchParams();
   const mainContainerRef = useRef<any>(null);
 
   const { width: windowWidth, height: windowHeight } = useWindowDimensions();
 
   const [initialized, setInitialized] = useState<boolean>(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      triggerNewRandomDirections();
-      setInitialized(true);
-    }, 1000);
-  }, []);
+  const [isSparksActive, setIsSparksActive] = useState<boolean>(false);
 
   const [overlapChecker, setOverlapChecker] = useState(false);
 
@@ -88,12 +85,70 @@ const Main = () => {
   ];
 
   // Edge and overlap collision detection
-  const {triggerNewRandomDirections} = useCollisionDetection(
+  const { triggerNewRandomDirections } = useCollisionDetection(
     bubbles,
     setBubbles,
     mainContainerRef.current,
     overlapChecker
   );
+
+  // Force a rerender by refreshing the page (with 100ms delay)
+  useEffect(() => {
+    let resizeTimeout: NodeJS.Timeout;
+
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        window.location.reload();
+      }, 100);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      clearTimeout(resizeTimeout);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  // Initialize with random directions and appear after X seconds
+  useEffect(() => {
+    setTimeout(() => {
+      triggerNewRandomDirections();
+      setInitialized(true);
+    }, 1000);
+  }, []);
+
+  // Set active bubble from URL query
+  useEffect(() => {
+    const page = searchParams.get('page');
+
+    if (page) {
+      setActiveBubble(page);
+    }
+  }, [searchParams, setActiveBubble]);
+
+  // Update the URL query parameter whenever activeBubble changes
+  useEffect(() => {
+    if (activeBubble) {
+      setSearchParams({ page: activeBubble });
+    } else {
+      setSearchParams({});
+    }
+  }, [activeBubble]);
+
+  // Add event listener to toggle spark with Q key
+  useEffect(() => {
+    const keyDownHandler = (event: KeyboardEvent) => {
+      if (event.key === 'q') {
+        setIsSparksActive((prevState) => !prevState);
+      }
+    };
+
+    document.addEventListener('keydown', keyDownHandler);
+
+    return () => document.removeEventListener('keydown', keyDownHandler);
+  }, []);
 
   // Set random starting direction at initialization
   useEffect(() => {
@@ -130,7 +185,7 @@ const Main = () => {
   return (
     <div className={styles.container} ref={mainContainerRef}>
       <Background />
-      <Sparks />
+      {isSparksActive && <Sparks />}
 
       <Bubble
         bubble={introBubble}
@@ -187,10 +242,12 @@ const Main = () => {
         <p>Projects</p>
       </Bubble>
 
-      {windowWidth && windowHeight && <BlackHole  setActiveBubble={setActiveBubble} />}
+      {windowWidth && windowHeight && (
+        <BlackHole setActiveBubble={setActiveBubble} />
+      )}
 
       {/* Starting with "-" means it is unimplemented */}
-      {activeBubble && activeBubble[0] !== "-" && (
+      {activeBubble && activeBubble[0] !== '-' && (
         <Modal activeBubble={activeBubble} setActiveBubble={setActiveBubble} />
       )}
     </div>
